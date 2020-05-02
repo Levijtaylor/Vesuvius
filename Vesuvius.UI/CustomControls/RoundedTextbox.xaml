@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="Vesuvius.UI.CustomControls.RoundedControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Vesuvius.UI.CustomControls"
+             mc:Ignorable="d" Height="65.606" VerticalContentAlignment="Top" Width="978.666">
+    <Canvas Height="66">
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" CornerRadius="8" Background="#FF2C2929" Canvas.Left="77" Canvas.Top="10" MinWidth="780">
+            <TextBox TextWrapping="Wrap" Margin="9,-1" Background="{x:Null}" FontSize="14" Foreground="Snow" VerticalAlignment="Center" BorderBrush="{x:Null}" Height="47"/>
+        </Border>
+        <Border CornerRadius="8" Canvas.Right="30" Canvas.Top="18" BorderBrush="Black" BorderThickness="1">
+            <Button Height="28" Width="73" Background="#FF232121" BorderBrush="Transparent" Content="Send"/>
+        </Border>
+        <Button Name="btnMoreContentOptions" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" Canvas.Left="20" Canvas.Top="18">
+            <Image Source="/Images/more.png" RenderOptions.EdgeMode="Aliased"/>
+        </Button>
+    </Canvas>
+</UserControl>

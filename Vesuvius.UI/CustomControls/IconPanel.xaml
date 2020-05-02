@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="Vesuvius.UI.CustomControls.IconPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Vesuvius.UI.CustomControls"
+             mc:Ignorable="d" Width="166.457" Height="58.636">
+
+    <StackPanel>
+        <TextBlock Text="Requests" Foreground="Snow" Margin="0 0 0 10"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" HorizontalAlignment="Center" Margin="10 0" Width="35" Background="Transparent" BorderBrush="Transparent">
+                <Image Source="/Images/chat.png" RenderOptions.EdgeMode="Aliased" Height="18" Width="25"/>
+            </Button>
+            <Button Grid.Column="2" HorizontalAlignment="Center" Margin="10 0" Width="35" Background="Transparent" BorderBrush="Transparent">
+                <Image Source="/Images/user.png" RenderOptions.EdgeMode="Aliased" Height="21" Width="25"/>
+            </Button>
+
+            <!--Notification Bubble-->
+            <Border CornerRadius="50" Background="Red" Grid.Column="1" Margin="5,5,21.001,5" Visibility="{Binding ChannelNotificationVisibility}">
+                <TextBlock Text="{Binding ChannelNotificationCount}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="8" x:Name="txtBlockChannelNotification"/>
+            </Border>
+
+            <!--Notification Bubbles-->
+            <Border CornerRadius="50" Background="Red" Grid.Column="3" Margin="5,5,21.001,5" Visibility="{Binding UserNotificationVisibility}">
+                <TextBlock Text="{Binding UserNotificationCount}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="8" x:Name="txtBlockUserNotification"/>
+            </Border>
+
+        </Grid>
+    </StackPanel>
+</UserControl>

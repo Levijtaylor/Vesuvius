@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="Vesuvius.UI.CustomControls.MessageBanner"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Vesuvius.UI.CustomControls"
+             mc:Ignorable="d" d:DesignWidth="800" Height="69.419" x:Name="userControl">
+
+    <Grid>
+        <Separator MinWidth="800" Width="Auto" Background="Snow" HorizontalAlignment="Stretch" Height=".75"/>
+        <Border CornerRadius="8" BorderBrush="Snow" BorderThickness=".75" HorizontalAlignment="Center" Height="20" Width="200" Background="#FF232121">
+            <TextBlock Name="txtBlockDate" Foreground="Snow" FontSize="14" Text="{Binding DateOfMessage}" TextAlignment="Center"/>
+        </Border>
+    </Grid>
+</UserControl>

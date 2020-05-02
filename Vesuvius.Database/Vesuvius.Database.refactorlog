@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="a2912919-b3c6-4d9f-934d-65aab5fc9244" ChangeDateTime="04/12/2020 20:42:07">
+    <Property Name="ElementName" Value="[dbo].[ChannelMapping].[Enabled]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[ChannelMapping]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IsEnabled" />
+  </Operation>
+</Operations>
