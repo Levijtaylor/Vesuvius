@@ -18,25 +18,32 @@
     <Border Padding="4" BorderThickness="2" >
         <DockPanel>
             <!--Top (Title/Requests)-->
-            <Grid DockPanel.Dock="Top">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="3*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <!--Requests-->
-                <Canvas Grid.Column="0" MinHeight="50">
-                    <CustomControls:IconPanel x:Name="iconPanelRequests" Height="55" Width="166" Canvas.Top="-5"/>
-                </Canvas>
-                <!--TitleBar-->
-                <TextBlock Style="{StaticResource TitleFont}" Grid.Column="1" x:Name="txtBlockChannelTitle"/>
-            </Grid>
+            <Border DockPanel.Dock="Top" BorderBrush="#FF050E13" BorderThickness="2,2,2,2">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="206*"/>
+                        <ColumnDefinition Width="1009*"/>
+                        <ColumnDefinition Width="304*"/>
+                    </Grid.ColumnDefinitions>
+                    <!--Requests-->
+                    <Border Grid.Column="0" BorderBrush="#FF050E13" BorderThickness="0,0,2,0">
+                        <Canvas MinHeight="50" Margin="0,0,114,0">
+                            <CustomControls:IconPanel x:Name="iconPanelRequests" Height="55" Width="166" Canvas.Top="-5"/>
+                        </Canvas>
+                    </Border>
+                    <!--TitleBar-->
+                    <TextBlock Style="{StaticResource TitleFont}" Grid.Column="1" x:Name="txtBlockChannelTitle" Margin="10,0,0,0"/>
+                </Grid>
+            </Border>
             <!--Bottom (MessageTextbox/Profile Tab)-->
             <Grid DockPanel.Dock="Bottom">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width=".25*"/>
                     <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width=".75*"/>
                     <ColumnDefinition Width="*"/>
+
                 </Grid.ColumnDefinitions>
                 <!--ProfileTab-->
                 <Border BorderBrush="#FF050E13" BorderThickness="2,2,0,2" Background="{x:Null}" Grid.Column="0">
@@ -55,8 +62,25 @@
                     </StackPanel>
                 </Border>
                 <!--MessageTextbox-->
-                <Border Grid.Column="1" BorderBrush="#FF050E13" BorderThickness="2">
-                    <CustomControls:RoundedControl/>
+                <Border Grid.Column="2" BorderBrush="#FF050E13" BorderThickness="0,2,0,2">
+                    <Border CornerRadius="8" Background="#FF2C2929" MaxHeight="42" MinWidth="780">
+                        <TextBox Foreground="Snow" Background="Transparent" MinWidth="780" Height="42" BorderBrush="Black" BorderThickness="1" Name="txtBoxMessage"/>
+                    </Border>
+                </Border>
+                <!--More Button-->
+                <Border Grid.Column="1" BorderBrush="#FF050E13" BorderThickness="2,2,0,2">
+                    <Button MaxHeight="25" MaxWidth="25" Name="btnMoreContentOptions" Background="Transparent" BorderBrush="Transparent" BorderThickness="0">
+                        <Image Source="/Images/more.png" RenderOptions.EdgeMode="Aliased"/>
+                    </Button>
+                </Border>
+                <!--Send-->
+                <Border Grid.Column="3" BorderBrush="#FF050E13" BorderThickness="0,2,2,2">
+                    <Border CornerRadius="8"  BorderBrush="Black" BorderThickness="1" MaxHeight="42" MaxWidth="80">
+                        <Button Height="28" Width="73" Background="#FF232121" BorderBrush="Transparent" Content="Send"/>
+                    </Border>
+                </Border>
+                <!--TBD-->
+                <Border Grid.Column="4" BorderBrush="#FF050E13" BorderThickness="0,2,2,2">
                 </Border>
             </Grid>
             <!--Right (UsersList)-->
@@ -68,7 +92,7 @@
                             <GradientStop Color="#FF11566C" Offset="1"/>
                         </RadialGradientBrush>
                     </StackPanel.Background>
-                    <TextBlock Text="Channel Members" FontSize="14" FontWeight="SemiBold" HorizontalAlignment="Stretch" TextAlignment="Center"/>
+                    <TextBlock Text="Channel Members" Margin="15,0,15,0" FontSize="14" FontWeight="SemiBold" HorizontalAlignment="Stretch" TextAlignment="Center"/>
                     <StackPanel x:Name="stackPanelUsers">
 
                     </StackPanel>

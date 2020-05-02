@@ -5,10 +5,12 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Vesuvius.UI"
              xmlns:CustomControls="clr-namespace:Vesuvius.UI.CustomControls" x:Class="Vesuvius.UI.MessageContainer"
-             mc:Ignorable="d" d:DesignWidth="800" Height="156.334" Name="userControl">
-    <Grid Name="grid">
-        
-        
-        
-    </Grid>
+             mc:Ignorable="d" d:DesignWidth="800" Height="106.334" Name="userControl">
+    <StackPanel>
+        <Canvas Height="25" Margin="0,0,0,10">
+            <Image x:Name="userImage" Height="14" Width="17" Canvas.Left="4" Canvas.Top="5"/>
+            <Label x:Name="lblUserName" Content="{Binding Sender}" Canvas.Left="26" Canvas.Top="7" Width="120" FontSize="14" FontWeight="SemiBold"/>
+        </Canvas>
+        <TextBlock TextAlignment="Left" Margin="28,0,0,0" Foreground="Snow" FontSize="14" x:Name="txtBlockContent" Text="{Binding Message}"/>
+    </StackPanel>
 </UserControl>

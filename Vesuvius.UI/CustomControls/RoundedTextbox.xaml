@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:Vesuvius.UI.CustomControls"
              mc:Ignorable="d" Height="65.606" VerticalContentAlignment="Top" Width="978.666">
     <Canvas Height="66">
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" CornerRadius="8" Background="#FF2C2929" Canvas.Left="77" Canvas.Top="10" MinWidth="780">
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" CornerRadius="8" Background="#FF2C2929" Canvas.Left="77" Canvas.Top="10" MinWidth="780" Width="680">
             <TextBox TextWrapping="Wrap" Margin="9,-1" Background="{x:Null}" FontSize="14" Foreground="Snow" VerticalAlignment="Center" BorderBrush="{x:Null}" Height="47"/>
         </Border>
         <Border CornerRadius="8" Canvas.Right="30" Canvas.Top="18" BorderBrush="Black" BorderThickness="1">

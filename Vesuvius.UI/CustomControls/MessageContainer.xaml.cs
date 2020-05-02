@@ -24,15 +24,15 @@ namespace Vesuvius.UI
         /// Sender determines the color of labelUsername
         /// </summary>
         /// <param name="IsSender"></param>
-        public MessageContainer(bool IsSender)
+        public MessageContainer(bool isActiveUser)
         {
             InitializeComponent();
             this.DataContext = this;
 
-            //if (IsSender == true)
-            //    lblSender.Foreground = Brushes.Teal;
-            //else
-            //    lblSender.Foreground = Brushes.NavajoWhite;
+            if (isActiveUser == true)
+                lblUserName.Foreground = Brushes.Teal;
+            else
+                lblUserName.Foreground = Brushes.NavajoWhite;
         }
 
         /// <summary>

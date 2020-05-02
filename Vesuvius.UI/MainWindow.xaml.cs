@@ -126,10 +126,9 @@ namespace Vesuvius.UI
 
             foreach(var user in selectedChannel.Users)
             {
-                stackPanelUsers.Children.Add(new Label
+                stackPanelUsers.Children.Add(new CustomControls.UserButton
                 {
-                    Content = user.Alias,
-                    FontSize = 12
+                   UserName = user.Alias
                 });            
             }
 
@@ -190,20 +189,20 @@ namespace Vesuvius.UI
             //When Enter is Pressed
             if (e.Key == Key.Return)
             {
-                //AppContext.Current.SessionContext.AddMessage(new Message
-                //{
-                //    ChannelID = selectedChannel.Id,
-                //    Content = txtBoxMessage.Text,
-                //    UserID = AppContext.Current.SessionContext.User.Id,
-                //    TypeId = 0,
-                //    User = AppContext.Current.SessionContext.User
-                //});
-                //
-                //stackPanelMessages.Children.Add(new MessageContainer(true)
-                //{
-                //    Sender = AppContext.Current.SessionContext.User.Alias,
-                //    Message = txtBoxMessage.Text
-                //});
+                AppContext.Current.SessionContext.AddMessage(new Message
+                {
+                    ChannelID = selectedChannel.Id,
+                    Content = txtBoxMessage.Text,
+                    UserID = AppContext.Current.SessionContext.User.Id,
+                    TypeId = 0,
+                    User = AppContext.Current.SessionContext.User
+                });
+                
+                stackPanelMessages.Children.Add(new MessageContainer(true)
+                {
+                    Sender = AppContext.Current.SessionContext.User.Alias,
+                    Message = txtBoxMessage.Text
+                });
             }  
         }
     }

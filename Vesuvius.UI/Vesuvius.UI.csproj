@@ -74,6 +74,9 @@
     <Compile Include="CustomControls\MessageBanner.xaml.cs">
       <DependentUpon>MessageBanner.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CustomControls\UserButton.xaml.cs">
+      <DependentUpon>UserButton.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SessionContext.cs" />
     <Compile Include="CustomControls\ChannelButton.xaml.cs">
       <DependentUpon>ChannelButton.xaml</DependentUpon>
@@ -101,6 +104,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CustomControls\RoundedTextbox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CustomControls\UserButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
