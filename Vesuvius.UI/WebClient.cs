@@ -17,6 +17,7 @@ namespace Vesuvius.UI
 
         public WebClient()
         {
+            // Retrieving path from config file
             _basePath = System.Configuration.ConfigurationManager.AppSettings["ServerUrl"];
 
             _client = new RestClient(_basePath);
