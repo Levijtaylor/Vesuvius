@@ -117,8 +117,7 @@
             </Border>
             <!--Center (StackPannelMessages)-->
             <ScrollViewer VerticalScrollBarVisibility="Hidden"  Name="scrollViewMessages">
-                <StackPanel x:Name="stackPanelMessages" ScrollViewer.CanContentScroll="True" ClipToBounds="True">
-                </StackPanel>
+                <StackPanel x:Name="stackPanelMessages" ScrollViewer.CanContentScroll="True" ClipToBounds="True"/>
             </ScrollViewer>
         </DockPanel>
     </Border>

@@ -24,26 +24,47 @@ namespace Vesuvius.UI
         /// Sender determines the color of labelUsername
         /// </summary>
         /// <param name="IsSender"></param>
-        public MessageContainer(bool isActiveUser)
+        public MessageContainer(bool isActiveUser, bool userNameVisible)
         {
             InitializeComponent();
             this.DataContext = this;
 
-            if (isActiveUser == true)
-                lblUserName.Foreground = Brushes.Teal;
+            if (userNameVisible == true)
+            {
+                if (isActiveUser == true)
+                    lblUserName.Foreground = Brushes.Teal;
+                else
+                    lblUserName.Foreground = Brushes.NavajoWhite;
+            }
             else
-                lblUserName.Foreground = Brushes.NavajoWhite;
+            {
+                lblUserName.Visibility = Visibility.Hidden;
+            }
+        }
+        
+        public MessageContainer()
+        {
+
         }
 
-        /// <summary>
-        /// Sender of the Message
-        /// </summary>
-        public string Sender { get; set; }
+        public void AddTextToMessage(string text)
+        {
+            stackPanel.Children.Add(new TextBlock()
+            {
+                Text = text
+            });
+        }
 
-        /// <summary>
-        /// The Message Block
-        /// </summary>
-        public string Message { get; set; } 
 
-    }
+    /// <summary>
+    /// Sender of the Message
+    /// </summary>
+    public string Sender { get; set; }
+
+    /// <summary>
+    /// The Message Block
+    /// </summary>
+    public string Message { get; set; }
+
+}
 }

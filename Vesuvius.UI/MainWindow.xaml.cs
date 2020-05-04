@@ -134,37 +134,84 @@ namespace Vesuvius.UI
 
             //If The Active user had sent the message prior or not determines label color
 
-            DateTime lastDate = selectedChannel.Messages.First().TimeStamp;
-            stackPanelMessages.Children.Add(new CustomControls.MessageBanner(lastDate));
+            var previousMessage = selectedChannel.Messages.First();
+            var lastSeenDate = previousMessage.TimeStamp;
+            var initialBanner = new CustomControls.MessageBanner(lastSeenDate);
+            stackPanelMessages.Children.Add(initialBanner);
 
             foreach(var msg in selectedChannel.Messages)
             {
-                if(msg.TimeStamp.Date > lastDate.Date)
-                {
-                    var banner = new CustomControls.MessageBanner(msg.TimeStamp);
-                    lastDate = msg.TimeStamp.Date;
-                    stackPanelMessages.Children.Add(banner);
-                }
-                
-                if (msg.User.Id != AppContext.Current.SessionContext.User.Id)
-                {
-                    stackPanelMessages.Children.Add(new MessageContainer(false)
-                    {
-                        Sender = msg.User.Alias,
-                        Message = msg.Content
-                    });
-                }
-                else
-                {
-                    stackPanelMessages.Children.Add(new MessageContainer(true)
-                    {
-                        Sender = msg.User.Alias,
-                        Message = msg.Content
-                    });
-                }
-                
+                AddMessageToStackPanel(msg, ref lastSeenDate, previousMessage.UserID);
             }
+        }
 
+        /// <summary>
+        /// Adding messages to the Stackpanel.
+        /// </summary>
+        /// <param name="msg"></param>
+        /// <param name="lastSeenDate"></param>
+        /// <param name="previousMessageUserId"></param>
+        public void AddMessageToStackPanel(Message msg,ref DateTime lastSeenDate,int previousMessageUserId)
+        {
+            // If the comment previous has an earlier date of origin
+            if (msg.TimeStamp.Date > lastSeenDate.Date)
+            {
+                var banner = new CustomControls.MessageBanner(msg.TimeStamp);
+                lastSeenDate = msg.TimeStamp.Date;
+                stackPanelMessages.Children.Add(banner);
+            }
+            MessageContainer lastMessage = new MessageContainer();
+            try
+            {
+                lastMessage = (MessageContainer)stackPanelMessages.Children[stackPanelMessages.Children.Count - 1];
+            }
+            catch { }
+            // If UserId of last Message in stackpanel is == to this message UserID and The last Child was not a Banner
+            if (previousMessageUserId == msg.UserID && stackPanelMessages.Children[stackPanelMessages.Children.Count -1].GetType() != typeof(CustomControls.MessageBanner))
+            {
+                // Adding a Message to the stackpanel without a label
+                lastMessage.AddTextToMessage(msg.Content);
+            }
+            else
+            {
+                AddContainerToStackPanel(msg);
+            }
+        }
+
+        /// <summary>
+        /// Adds the Message Container to the stackpanel depending on who the sender is
+        /// </summary>
+        /// <param name="msg"></param>
+        public void AddContainerToStackPanel(Message msg)
+        {
+            // If ActiveUser is not the person who sent this message
+            if (msg.User.Id != AppContext.Current.SessionContext.User.Id)
+            {
+                // Adding a Message to the stackpanel with the sender coloring on label
+                stackPanelMessages.Children.Add(CreateMessageContainer(false, true, msg));
+            }
+            else
+            {
+                // Adding a Message to the stackpanel with the not sender coloring on label
+                stackPanelMessages.Children.Add(CreateMessageContainer(true, true, msg));
+            }
+        }
+
+        /// <summary>
+        /// Deciding he design of MessageContainer being added to the Stackpanel
+        /// </summary>
+        /// <param name="isActiveUser"></param>
+        /// <param name="userNameVisible"></param>
+        /// <param name="msg"></param>
+        /// <returns></returns>
+        private MessageContainer CreateMessageContainer(bool isActiveUser, bool userNameVisible, Message msg)
+        {
+            var message = new MessageContainer(isActiveUser, userNameVisible)
+            {
+                Sender = msg.User.Alias,
+                Message = msg.Content
+            };
+            return message;
         }
 
         /// <summary>
@@ -198,11 +245,7 @@ namespace Vesuvius.UI
                     User = AppContext.Current.SessionContext.User
                 });
                 
-                stackPanelMessages.Children.Add(new MessageContainer(true)
-                {
-                    Sender = AppContext.Current.SessionContext.User.Alias,
-                    Message = txtBoxMessage.Text
-                });
+                
             }  
         }
     }
