@@ -14,7 +14,7 @@
         <PasswordBox x:Name="passboxPassword" HorizontalAlignment="Left" Margin="376,187,0,0" VerticalAlignment="Top" Width="282" Height="28" Background="#FF323030" BorderBrush="#FF323030" TabIndex="1" Foreground="Snow"/>
         <Label Content="User" HorizontalAlignment="Left" Margin="327,121,0,0" VerticalAlignment="Top" FontSize="14"/>
         <Label Content="Password" HorizontalAlignment="Left" Margin="301,186,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <Label x:Name="lblTitle" Content="Vesuvius" HorizontalAlignment="Left" Height="65" Margin="419,10,0,0" VerticalAlignment="Top" Width="177" FontSize="36"/>
+        <Label x:Name="lblTitle" Content="Vesuvius" HorizontalAlignment="Left" Height="65" Margin="419,10,0,0" VerticalAlignment="Top" Width="177" FontSize="36" Foreground="Snow"/>
         <Button x:Name="btnLogin" Content="Login" HorizontalAlignment="Left" Height="25" Margin="593,242,0,0" VerticalAlignment="Top" Width="65" Background="#FF323030" Click="BtnLogin_Click" TabIndex="2"/>
         <Grid HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="216">
             <Button x:Name="btnNewUser" Content="Create Account" HorizontalAlignment="Left" Height="21" Margin="21,20,0,0" VerticalAlignment="Top" Width="94" Click="Button_Click" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF429AD6"/>

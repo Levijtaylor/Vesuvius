@@ -64,7 +64,7 @@
                 <!--MessageTextbox-->
                 <Border Grid.Column="2" BorderBrush="#FF050E13" BorderThickness="0,2,0,2">
                     <Border CornerRadius="8" Background="#FF2C2929" MaxHeight="42" MinWidth="780">
-                        <TextBox Foreground="Snow" Background="Transparent" MinWidth="780" Height="42" BorderBrush="Black" BorderThickness="1" Name="txtBoxMessage"/>
+                        <TextBox Foreground="Snow" Background="Transparent" MinWidth="780" Height="42" BorderBrush="Black" BorderThickness="1" Name="txtBoxMessage" KeyDown="KeyDownHandler"/>
                     </Border>
                 </Border>
                 <!--More Button-->

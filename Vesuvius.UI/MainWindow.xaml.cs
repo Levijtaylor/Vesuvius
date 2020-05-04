@@ -209,7 +209,8 @@ namespace Vesuvius.UI
             var message = new MessageContainer(isActiveUser, userNameVisible)
             {
                 Sender = msg.User.Alias,
-                Message = msg.Content
+                Message = msg.Content,
+                Margin = new Thickness(0,0,0,15)
             };
             return message;
         }
@@ -236,16 +237,18 @@ namespace Vesuvius.UI
             //When Enter is Pressed
             if (e.Key == Key.Return)
             {
-                AppContext.Current.SessionContext.AddMessage(new Message
+                var message = new Message()
                 {
                     ChannelID = selectedChannel.Id,
                     Content = txtBoxMessage.Text,
                     UserID = AppContext.Current.SessionContext.User.Id,
                     TypeId = 0,
                     User = AppContext.Current.SessionContext.User
-                });
-                
-                
+                };
+
+                AppContext.Current.SessionContext.AddMessage(message);
+
+                AddContainerToStackPanel(message);
             }  
         }
     }
